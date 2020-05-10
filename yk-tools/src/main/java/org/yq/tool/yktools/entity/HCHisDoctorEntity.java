@@ -1,10 +1,8 @@
 package org.yq.tool.yktools.entity;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Embedded;
-import org.springframework.data.relational.core.mapping.Table;
+
+import javax.persistence.*;
 
 /**
  * @Auther: QiaoYang
@@ -12,17 +10,22 @@ import org.springframework.data.relational.core.mapping.Table;
  * @Description:
  */
 @Data
-@Table("t_hc_his_doctor")
+@Table(name="t_hc_his_doctor")
+@Entity
 public class HCHisDoctorEntity {
-
-
     @Id
-    @Embedded(onEmpty = Embedded.OnEmpty.USE_EMPTY)
-    private HCHisDoctorId hcHisDoctorId;
+    @Column(name="id")
+   private Long id;
+
+
+    private String no;
+
+    @Column(name="dept_no")
+    private String deptNo;
 
 
 
-    @Column("platform_id")
+    @Column(name="platform_id")
     private Long platformId;
 
 
@@ -41,4 +44,9 @@ public class HCHisDoctorEntity {
     private String skill;
 
     private String level;
+
+    @ManyToOne
+    @JoinColumn(name="his_id")
+    private HCHisEntity his;
+
 }
