@@ -1,6 +1,8 @@
 package org.yq.tool.yktools.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -45,8 +47,9 @@ public class HCHisDoctorEntity {
 
     private String level;
 
-    @ManyToOne
-    @JoinColumn(name="his_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="his_id",nullable = true)
+    @NotFound(action = NotFoundAction.IGNORE)
     private HCHisEntity his;
 
 }
