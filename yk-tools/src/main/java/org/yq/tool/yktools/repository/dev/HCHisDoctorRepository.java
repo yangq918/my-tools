@@ -1,9 +1,7 @@
-package org.yq.tool.yktools.repository;
+package org.yq.tool.yktools.repository.dev;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.yq.tool.yktools.entity.HCHisDoctorEntity;
+import org.yq.tool.yktools.entity.dev.HCHisDoctorEntity;
 
 /**
  * @Auther: QiaoYang

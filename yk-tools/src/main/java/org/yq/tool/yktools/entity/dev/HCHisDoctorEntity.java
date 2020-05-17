@@ -1,4 +1,4 @@
-package org.yq.tool.yktools.entity;
+package org.yq.tool.yktools.entity.dev;
 
 import lombok.Data;
 import org.hibernate.annotations.NotFound;
@@ -47,9 +47,8 @@ public class HCHisDoctorEntity {
 
     private String level;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name="his_id",nullable = true)
-    @NotFound(action = NotFoundAction.IGNORE)
-    private HCHisEntity his;
+    @Column(name = "his_id")
+    private Long hisId;
+
 
 }
